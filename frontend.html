@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataMind Chat Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons for lightweight UI icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1e1e1e; /* Dark background to match the presentation border */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <!-- Main App Container -->
+    <div class="flex w-full max-w-[1200px] h-[800px] bg-white rounded-lg shadow-xl overflow-hidden text-gray-800">
+        
+        <!-- Sidebar -->
+        <aside class="w-64 border-r border-gray-100 flex flex-col bg-[#fcfcfc]">
+            <!-- Sidebar Header -->
+            <div class="p-4 flex items-center gap-2">
+                <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white font-bold text-xs">D</div>
+                <span class="font-semibold text-sm">DataMind</span>
+                <i class="ph ph-sidebar-simple ml-auto text-gray-400 cursor-pointer"></i>
+            </div>
+
+            <!-- New Chat & Search -->
+            <div class="px-4 pb-4 border-b border-gray-100">
+                <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center gap-2 py-2 px-4 rounded-lg text-sm font-medium transition-colors mb-4">
+                    <i class="ph ph-plus"></i> New Chat
+                </button>
+                <div class="relative">
+                    <i class="ph ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" placeholder="Search Chats" class="w-full pl-9 pr-3 py-1.5 bg-white border border-gray-200 rounded-md text-xs focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                </div>
+            </div>
+
+            <!-- History List -->
+            <div class="flex-1 overflow-y-auto p-3 space-y-6">
+                <!-- Today -->
+                <div>
+                    <h3 class="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2 px-2">Today</h3>
+                    <div class="space-y-1">
+                        <div class="flex items-center justify-between px-2 py-1.5 bg-indigo-50 text-indigo-700 rounded-md cursor-pointer text-xs group">
+                            <span class="truncate">Class 10 Mathematics Performance</span>
+                            <i class="ph ph-dots-three text-indigo-400 opacity-0 group-hover:opacity-100"></i>
+                        </div>
+                        <div class="flex items-center justify-between px-2 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md cursor-pointer text-xs group">
+                            <span class="truncate">Compare Subject Averages</span>
+                            <i class="ph ph-dots-three text-gray-400 opacity-0 group-hover:opacity-100"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previous 7 Days -->
+                <div>
+                    <h3 class="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2 px-2">Previous 7 Days</h3>
+                    <div class="space-y-1">
+                        <div class="flex items-center justify-between px-2 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md cursor-pointer text-xs group">
+                            <span class="truncate">Attendance and Exam Results</span>
+                            <i class="ph ph-dots-three text-gray-400 opacity-0 group-hover:opacity-100"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Older -->
+                <div>
+                    <h3 class="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2 px-2">Older</h3>
+                    <div class="space-y-1">
+                        <div class="flex items-center justify-between px-2 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md cursor-pointer text-xs group">
+                            <span class="truncate">Changes in Student Performance</span>
+                            <i class="ph ph-dots-three text-gray-400 opacity-0 group-hover:opacity-100"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Footer -->
+            <div class="p-4 border-t border-gray-100 flex items-center gap-3">
+                <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
+                    <i class="ph ph-buildings"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-semibold text-gray-800">Oakridge School</span>
+                    <span class="text-[10px] text-gray-500">Educator workspace</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="flex-1 flex flex-col bg-white">
+            <!-- Top Navigation -->
+            <header class="h-14 border-b border-gray-100 flex items-center justify-between px-6">
+                <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                    <i class="ph ph-dots-three"></i>
+                    <span>DataMind</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-7 h-7 bg-indigo-100 text-indigo-700 rounded-full flex items-center justify-center text-xs font-semibold cursor-pointer">
+                        AM
+                    </div>
+                    <i class="ph ph-caret-down text-gray-400 text-xs cursor-pointer"></i>
+                </div>
+            </header>
+
+            <!-- Center Content -->
+            <div class="flex-1 flex flex-col items-center justify-center px-8 text-center mt-[-40px]">
+                <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-6">
+                    <span class="text-indigo-600 text-2xl font-bold">D</span>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-800 mb-3">What would you like to know<br>about your students?</h1>
+                <p class="text-sm text-gray-500 max-w-md mb-10">
+                    Explore student performance, understand trends, and discover insights by asking questions in everyday language.
+                </p>
+
+                <!-- Suggestions Grid -->
+                <div class="grid grid-cols-3 gap-4 w-full max-w-3xl">
+                    <button class="flex items-start justify-between p-4 border border-gray-100 rounded-xl hover:border-indigo-100 hover:shadow-sm transition-all text-left group bg-white">
+                        <span class="text-xs text-gray-600 group-hover:text-gray-800">Which subjects need improvement?</span>
+                        <i class="ph ph-arrow-up-right text-gray-400 group-hover:text-indigo-500"></i>
+                    </button>
+                    <button class="flex items-start justify-between p-4 border border-gray-100 rounded-xl hover:border-indigo-100 hover:shadow-sm transition-all text-left group bg-white">
+                        <span class="text-xs text-gray-600 group-hover:text-gray-800">Compare class performance</span>
+                        <i class="ph ph-arrow-up-right text-gray-400 group-hover:text-indigo-500"></i>
+                    </button>
+                    <button class="flex items-start justify-between p-4 border border-gray-100 rounded-xl hover:border-indigo-100 hover:shadow-sm transition-all text-left group bg-white">
+                        <span class="text-xs text-gray-600 group-hover:text-gray-800">How has performance changed over time?</span>
+                        <i class="ph ph-arrow-up-right text-gray-400 group-hover:text-indigo-500"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chat Input Area -->
+            <div class="w-full max-w-3xl mx-auto px-8 pb-6">
+                <div class="border border-gray-200 rounded-2xl p-3 shadow-sm bg-white focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 transition-all">
+                    <textarea 
+                        rows="2" 
+                        placeholder="Ask anything about student performance..." 
+                        class="w-full resize-none outline-none text-sm text-gray-700 placeholder-gray-400 bg-transparent mb-2"
+                    ></textarea>
+                    
+                    <div class="flex items-center justify-between mt-2">
+                        <!-- Show Query Toggle -->
+                        <div class="flex items-center gap-2">
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer">
+                                <div class="w-8 h-4 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-indigo-600"></div>
+                            </label>
+                            <span class="text-xs text-gray-500 font-medium">Show Query</span>
+                        </div>
+                        
+                        <!-- Send Button -->
+                        <button class="w-8 h-8 bg-indigo-600 hover:bg-indigo-700 rounded-lg flex items-center justify-center text-white transition-colors">
+                            <i class="ph ph-arrow-up font-bold"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <span class="text-[10px] text-gray-400">Data-grounded insights. Transparent results.</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
